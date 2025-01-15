@@ -1,0 +1,119 @@
+/* body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+} */
+ /* .trends-container {
+  overflow-y: scroll !important;
+ } */
+
+.trends {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 36px;     
+    margin: 24px;
+  }
+  
+  .trending_movies {
+    background-color: #4c4c52; 
+    padding: 10px; 
+    text-align: center; 
+    border-radius: 8px; 
+    border: 1px solid white;
+    height: 20em;
+    width: 15em;
+  }
+
+#trending_movie {
+  height: 50%;
+  width: auto;
+  height: 19.5em;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.trending_movies:hover {
+  transform: scale(1.05); /* Scale the entire card slightly */
+}
+
+.trending_movies:hover #trending_movie {
+  transition: transform 0.3s ease-in-out; /* Smooth scaling effect for the image */
+}
+.loading {
+  color: white;
+}
+
+.video-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 16px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+
+.video-modal iframe {
+  display: block;
+  max-width: 100%;
+}
+
+.close-icon {
+  background-color: red;
+  padding: 6px;
+  bottom: 92%;
+  right: 0px;
+  position: absolute;
+  
+}
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.pagination-button {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #e05a00;
+}
+
+.page-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .trends {
+    /* grid-template-columns: repeat(2, 1fr); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 16px;
+    margin: 0 auto;
+    max-width: calc(100% - 32px); /* Ensure the container fits within the viewport */
+  }
+}
+  
+ 
+

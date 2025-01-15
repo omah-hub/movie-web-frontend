@@ -1,0 +1,51 @@
+html {
+    /* overflow: hidden; */
+}
+
+.home-view {
+    display: flex;
+    flex-direction: row;
+    height: screen;
+    justify-content: space-between;
+    gap: 20px;
+    overflow: hidden;
+   
+    
+    
+
+}
+.hero {
+    flex: 1;
+    
+}
+
+.movies {
+    flex: 2;
+}
+
+@media (max-width: 900px) {
+    .home-view {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        left: 50%;
+        
+    }
+  
+}
+
+/* @media (max-width: 900px) {
+    .home-view {
+        display: grid;
+        grid-template-rows: 20vh auto; 
+        height: 100vh;               
+        margin-top: -120px;
+    }
+    
+}
+
+@media (max-width: 700px) {
+    .home-view {
+        grid-template-rows: 1vh auto;
+        height: 100vh;
+    }
+} */

@@ -1,0 +1,163 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    
+    
+}
+
+.navbar-logo {
+    font-size: 1.8em;
+    font-weight: bold;
+   
+}
+ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+ul li {
+    margin: 0;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+a {
+    text-decoration: none; /* Removes underline */
+    color: #fff;           /* Adjust color as needed */
+    font-weight: bold;
+  }
+  
+  a:hover {
+     /* Adds underline on hover */
+    color: #ffffff42;             /* Change color on hover */
+  }
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.664);
+}
+
+.search-icon {
+    font-size: 1.2em;
+    color: #aaa;
+}
+
+.search-input {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    margin-left: 5px;
+    font-size: 1em;
+    width: 150px;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+    padding-left: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.664);
+}
+
+.profile {
+    font-size: 25px;
+    margin-right: 20px;
+    margin-bottom: -10px;
+    text-align: center;
+    position: relative;
+}
+.logout {
+    position: absolute;
+    top: 80px; /* Adjust based on where your profile icon is */
+    /* right: 35px; */
+    right: 4%;
+    background-color: #f8f8f8ea;
+    padding: 10px;
+    border-radius: 5px;
+    width: 60px;
+    text-align: center;
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, height 0.3s ease, visibility 0s 0.3s;
+    pointer-events: none;  /* Prevent clicks when hidden */
+  }
+  
+  .logout.show {
+    opacity: 1;
+    height: auto; /* Adjust based on content height */
+    visibility: visible;
+    pointer-events: auto; /* Allow clicks when visible */
+    transition: opacity 0.3s ease, height 0.3s ease, visibility 0s 0s;
+  }
+  
+  .logout p {
+    margin: 0;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .logout p:hover {
+    color: #ff4d4f;
+  }
+
+#name {
+    font-size: 12px;
+    margin-top: -5px;
+}
+
+@media  screen and (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+    }
+    ul {
+        display: flex;
+        gap: 10px;
+        margin: 8px 0;
+    }
+    .logout {
+        right: 45%;
+        top: 150px;
+    }
+
+    .navbar-search {
+        /* width: 100%; */
+        justify-content: center;
+        align-items: center;
+        margin: 0px 0px 0px 40px ;
+    }
+    .navbar-logo {
+        margin-top: -5px;
+    }
+}
+@media (max-width: 350px) {
+    .navbar-logo {
+        font-size: 20px;
+        margin-bottom: -8px;
+    }
+    ul li {
+        font-size: 10px;
+        /* margin-top: 3px; */
+    }
+    .navbar-container {
+        padding: auto 10px;
+    }
+    .navbar-search {
+        margin-top: -10px;
+        
+    }
+    .search-icon {
+        font-size: 0.7em;
+    }
+    .search-input {
+        font-size: 0.6em;
+    }
+}

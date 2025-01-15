@@ -1,0 +1,19 @@
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 5%;
+    padding: 20px;
+    overflow: hidden;
+    /* border: 1px solid #cccccc80; */
+    border-radius: 5px;
+    box-shadow: 1px 10px 15px 15px rgba(128, 128, 128, 0.219);
+    
+}
+.signup-link {
+    color: #4caf50;
+    text-align: right;
+}
+
+.text {
+    font-weight: bolder;
+}
