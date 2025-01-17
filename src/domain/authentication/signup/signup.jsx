@@ -23,12 +23,24 @@ function Signup() {
           withCredentials: true,
         });
         console.log(response)
-        // localStorage.setItem("isAuthenticated", "true");
+        const sessionId = response.data?.sessionId;
+        const name = response.data?.name;
+        const expirydate = response.data?.sessionExpiry
+        console.log(expirydate)
+
+        console.log('Session ID:', sessionId);
+        console.log('Name:', name);
+
+      
+        // // Store session ID
+        localStorage.setItem('name', name);
+        sessionStorage.setItem('sessionId', sessionId);
+        sessionStorage.setItem('expirydate', expirydate);
         setSuccessMessage('Register successful! Redirecting...');
         setErrorMessage('')
         setTimeout(() => {
-          navigate('/auth/login')
-        }, 2000);
+          navigate('/')
+        }, 1000);
          
       }catch (error) {
         setErrorMessage(error.response?.data?.error || 'Registration Failed!');

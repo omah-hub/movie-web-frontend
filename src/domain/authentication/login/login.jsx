@@ -25,10 +25,13 @@ function Login({ setName }) {
           const response = await axios.post('http://localhost:5000/api/login', data, {
             withCredentials: true,
           });
-
+            console.log(response)
           
           const sessionId = response.data?.sessionId;
           const name = response.data?.name;
+          const expirydate = response.data?.sessionExpiry
+          
+          console.log(expirydate)
 
           console.log('Session ID:', sessionId);
           console.log('Name:', name);
@@ -36,7 +39,8 @@ function Login({ setName }) {
         
           // // Store session ID
           localStorage.setItem('name', name);
-          sessionStorage.setItem('sessionid', sessionId);
+          sessionStorage.setItem('sessionId', sessionId);
+          sessionStorage.setItem('expirydate', expirydate);
           setSuccessMessage('Login successful! Redirecting...');
           setErrorMessage('')
           setTimeout(() => {
