@@ -34,7 +34,8 @@ function Navbar() {
       <h1 className='navbar-logo'>imovies</h1>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/kids">Kids</Link></li>
+        <li><Link to="/watchlist">WatchList</Link></li>
+        <li><Link to="/playlist">PlayList</Link></li>
         <li><Link to="/trends">Trends</Link></li>
         <li><Link to="/upcoming">Upcoming</Link></li>
       </ul>

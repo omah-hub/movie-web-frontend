@@ -33,14 +33,16 @@ const Movies = ({ onMovieSelect }) => {
     }
   };
 
-  if (error) return <div style={{color: "white"}}>Error: {error}</div>;
+  // if (error) return <div style={{color: "white"}}>Error: {error}</div>;
 
   return (
     <div 
       className="slider-container" 
-      onScroll={handleScroll} 
+      onScroll={handleScroll}
     >
-      {movies.map((movie) => (
+      {loading && <div style={{color: "white"}}>Loading...</div>}
+      {error && !loading && <div style={{color: "white"}}>Error...</div>}
+      {!loading && !error && movies.map((movie) => (
         <div 
           key={movie.id} 
           className="slider-item" 
@@ -57,9 +59,9 @@ const Movies = ({ onMovieSelect }) => {
           />
         </div>
       ))}
-      {loading && <div>Loading...</div>}
     </div>
   );
+  
 };
 
 export default Movies;

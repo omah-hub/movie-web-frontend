@@ -5,6 +5,7 @@
     text-align: center;
     justify-content: center;
     color: white;
+    margin-top: -60px;
 }
 
 .movie-title {
@@ -14,12 +15,23 @@
     text-align: center;
     text-wrap: wrap;
     width: 7em;
+}
+
+.selected-movie-title {
+    font-size: 4em;
+    font-family: "Sevillana";
+    font-weight: 200;
+    text-align: center;
+    text-wrap: wrap;
+    width: 7em;
+    height: 1.8em;
     
 }
 .movie-properties{
     display: flex;
     gap: 10px;
     justify-content: center;
+    height: 20px;
 } 
 
 #rated {
@@ -29,7 +41,7 @@
 
 
 .movie-properties p {
-    padding: 7px 5px;
+    /* padding: 10px 5px; */
     margin: 0px;
     border-left: 1px solid rgba(255, 255, 255, 0.253);
     padding-left: 8px;
@@ -40,6 +52,8 @@
     text-align: left;
     margin-left: 10px;
     max-width: 700px;
+    height: 120px;
+    padding-bottom: 20px;
 }
 
 .buttons{
@@ -124,8 +138,40 @@ span {
  
   
 
+@media (max-width: 900px) {
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin-top: -30px;
+}
 
-@media (max-width: 1180px)  {
+.selected-movie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.selected-movie-title{
+    height: 0.8em;
+    
+}
+.movie-properties{
+    height: 20px;
+}
+.about {
+    height: 40px;
+    font-size: 13px;
+    text-align: center;
+}
+}
+@media (max-width: 768px) {
+.selected-movie-container {
+/* margin: -30px; */
+}
+}
+/* @media (max-width: 1180px)  {
     .movie-title {
         font-size: 3rem;
         margin-left: 40px;
@@ -222,7 +268,7 @@ span {
       font-size: 2em; 
       margin-bottom: 20px;
       position: absolute;
-      /* left: 50%; */
+      
       transform: translateX(-50%);
       margin-left: 0;
         
@@ -255,6 +301,9 @@ span {
     .about {
         font-size: 10px;
     }
+    .watch {
+        width: 100%;
+    }
    
 }
-
+ */

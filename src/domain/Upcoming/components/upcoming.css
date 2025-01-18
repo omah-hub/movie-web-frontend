@@ -40,7 +40,8 @@ cursor: pointer;
 }
 
 .pagination-button {
-  background-color: #ff6600;
+  width: 100px;
+  background-color: black;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
