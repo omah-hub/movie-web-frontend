@@ -65,3 +65,17 @@ const Movies = ({ onMovieSelect }) => {
 };
 
 export default Movies;
+
+
+
+
+{/* <div className='like-count'>
+              <p>3</p>
+              <MdThumbUpAlt className={`dislikes-icon ${likeClicked ? 'bg-white' : 'bg-black'}`}
+              onClick={() => handleLikeClick(selectedMovie.id)}/>
+            </div>
+            <div className='like-count'>
+              <p>4</p>
+              <MdThumbDownAlt className={`dislikes-icon ${dislikeClicked ? 'bg-white' : 'bg-black'}`}
+               onClick={() => handleDislikeClick(selectedMovie.id)}/> */}
+            // </div>

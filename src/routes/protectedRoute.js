@@ -4,17 +4,27 @@ import { useNavigate } from "react-router-dom";
 
 
 function checkSessionExpiry() {
-  const sessionExpiry = sessionStorage.getItem('expirydate'); // Ensure correct key
-  if (!sessionExpiry) return false;
+  const sessionExpiry = localStorage.getItem('expirydate');
 
-  const currentTime = new Date().toTimeString();
-  const expiryTime = new Date(sessionExpiry).toTimeString();
+  if (!sessionExpiry) {
+    console.error('Session expiry date is not found in localStorage.');
+    return false;
+  }
 
-  // console.log("Current Time:", currentTime);
-  // console.log("Session Expiry Time:", expiryTime);
+  const currentTime = new Date();
+  const expiryTime = new Date(sessionExpiry);
 
-  return currentTime > expiryTime;
+  if (isNaN(expiryTime.getTime())) {
+    console.error('Invalid expiry date in localStorage:', sessionExpiry);
+    return false;
+  }
+
+  // console.log("Current Time:", currentTime.toISOString());
+  // console.log("Session Expiry Time:", expiryTime.toISOString());
+
+  return currentTime < expiryTime; // Return true if session is still valid
 }
+
 
 const ProtectedRoute = ({ isAuthenticated, children }) => {
   const navigate = useNavigate();
@@ -25,9 +35,9 @@ const ProtectedRoute = ({ isAuthenticated, children }) => {
     const interval = setInterval(() => {
       const valid = checkSessionExpiry();
       if (!valid) {
-        alert('Session expired. Redirecting to login.');
+        alert('Session expired. Redirecting to login...');
         sessionStorage.removeItem('sessionId');
-        sessionStorage.removeItem('expirydate');
+        localStorage.removeItem('expirydate');
         navigate("/auth/login");
         setSessionValid(false); // Set sessionValid to false when expired
         clearInterval(interval); // Stop checking after session expiry
@@ -37,9 +47,6 @@ const ProtectedRoute = ({ isAuthenticated, children }) => {
     return () => clearInterval(interval); // Clean up on unmount
   }, [navigate]);
 
-  if (!sessionValid) {
-    return null; // Optionally, you can render a loading spinner or message
-  }
 
   // Render children with the default background
   return (

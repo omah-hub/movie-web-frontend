@@ -30,6 +30,7 @@ function Login({ setName }) {
           const sessionId = response.data?.sessionId;
           const name = response.data?.name;
           const expirydate = response.data?.sessionExpiry
+          const userId = response.data?.userId
           
           console.log(expirydate)
 
@@ -39,12 +40,14 @@ function Login({ setName }) {
         
           // // Store session ID
           localStorage.setItem('name', name);
+          localStorage.setItem('userId', userId)
           sessionStorage.setItem('sessionId', sessionId);
-          sessionStorage.setItem('expirydate', expirydate);
+          
+          localStorage.setItem('expirydate', expirydate);
           setSuccessMessage('Login successful! Redirecting...');
           setErrorMessage('')
           setTimeout(() => {
-            navigate('/');
+            navigate('/app');
           }, 2000);
             
         }catch (error) {
@@ -63,7 +66,7 @@ function Login({ setName }) {
                 {errors.name && <p style={{color : 'red',fontStyle: 'italic', marginTop: '-10px', fontSize: '13px', fontWeight: 'bold'}}>Username is not correct</p>}
             </div>
             <div style={{height: '100px'}}>
-                <label htmlFor='password'>Password:</label>
+            -    <label htmlFor='password'>Password:</label>
                 <div style={{ position: 'relative'}}>
                 <input id='password'  type={showPassword ? 'text' : 'password'} placeholder='*****' {...register('password', {required: true})} />
                 <span onClick={togglePasswordVisibility}

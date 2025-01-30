@@ -26,6 +26,7 @@ function Signup() {
         const sessionId = response.data?.sessionId;
         const name = response.data?.name;
         const expirydate = response.data?.sessionExpiry
+        const userId = response.data?.userId
         console.log(expirydate)
 
         console.log('Session ID:', sessionId);
@@ -34,12 +35,13 @@ function Signup() {
       
         // // Store session ID
         localStorage.setItem('name', name);
+        localStorage.setItem('userId', userId)
         sessionStorage.setItem('sessionId', sessionId);
-        sessionStorage.setItem('expirydate', expirydate);
+        localStorage.setItem('expirydate', expirydate);
         setSuccessMessage('Register successful! Redirecting...');
         setErrorMessage('')
         setTimeout(() => {
-          navigate('/')
+          navigate('/app')
         }, 1000);
          
       }catch (error) {

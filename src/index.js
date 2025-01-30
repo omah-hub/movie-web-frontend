@@ -6,6 +6,7 @@ import App from "../src/routes/routes"
 
 
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

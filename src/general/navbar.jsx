@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import './navbar.css';
 import axios from 'axios';
@@ -32,12 +32,59 @@ function Navbar() {
   return (
     <div className='navbar-container'>
       <h1 className='navbar-logo'>imovies</h1>
+     
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/watchlist">WatchList</Link></li>
-        <li><Link to="/playlist">PlayList</Link></li>
-        <li><Link to="/trends">Trends</Link></li>
-        <li><Link to="/upcoming">Upcoming</Link></li>
+        <li>
+          <NavLink
+            to="/app"
+            end
+            className={({ isActive }) =>
+              isActive ? "active-link" : ""
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/app/watchlist"
+            className={({ isActive }) =>
+              isActive ? "active-link" : ""
+            }
+          >
+            WatchList
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/app/playlist"
+            className={({ isActive }) =>
+              isActive ? "active-link" : ""
+            }
+          >
+            PlayList
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/app/trends"
+            className={({ isActive }) =>
+              isActive ? "active-link" : ""
+            }
+          >
+            Trends
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/app/upcoming"
+            className={({ isActive }) =>
+              isActive ? "active-link" : ""
+            }
+          >
+            Upcoming
+          </NavLink>
+        </li>
       </ul>
 
       <div style={{width: '100px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>

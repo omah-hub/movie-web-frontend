@@ -32,11 +32,76 @@
     gap: 10px;
     justify-content: center;
     height: 20px;
+    text-wrap: nowrap;
 } 
+
+.like-count {
+padding: 10px;
+display: flex;
+align-items: center;
+cursor: pointer;
+display: flex;
+}
+  
+
+
+.dislikes-icon.bg-black {
+    /* color: black; */
+}
+.dislikes-icon.bg-white {
+    color: white;
+}
 
 #rated {
     background-color: orangered;
    margin-left: 10px;
+}
+
+/* Modal styles */
+.commentmodal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(27, 26, 26, 0.945); /* Consistent background color */
+    height: 35%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    opacity: 0; /* Hidden by default */
+    bottom: -100%; /* Place off-screen by default */
+    transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Smooth transition */
+    z-index: 1000;
+  }
+  
+  .commentmodal.open {
+    bottom: 50%; /* Visible position */
+    opacity: 1;  /* Fully visible */
+    background: rgba(27, 26, 26, 0.945); /* Keep the background consistent */
+  }
+  
+  .commentmodal.close {
+    bottom: -100%; /* Move off-screen */
+    opacity: 0;   /* Fully hidden */
+    background: rgba(27, 26, 26, 0.945); /* Ensure consistent background */
+  }
+  
+  .commentmodal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999; /* Ensure overlay is beneath the modal */
+  }
+  
+.comment-title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -20px;
 }
 
 
@@ -124,8 +189,67 @@ span {
     height: 300px;
     border: none;
   }
+ /* External CSS file */
+.comment-table {
+    display: flex;
+    justify-content: space-between;
+    /* Default for mobile */
+    align-items: flex-start; /* Aligns content to the left */
+    gap: 8px; /* Space between the elements */
+    padding: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-y: scroll;
+    
+     /* Light border */
+   /* Slightly rounded corners */
+     /* Light background */
+     /* Space between each comment table */
+  }
+  .comment-table::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
+  .comment-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .comment-form input {
+    background-color: rgba(0, 0, 0, 0.137); /* Semi-transparent black background */
+    color: white; /* Set text color to white */
+    cursor: text; /* Show text cursor when hovering over the input */
+    border: none; /* Optional: Remove border for a cleaner look */
+    padding: 8px; /* Optional: Add padding for better usability */
+    font-size: 16px; /* Optional: Adjust font size for readability */
+  }
   
-  .modal button {
+  .comment-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Optional: Lighten the placeholder text */
+  }
+  
+  .comment-form input:focus {
+    outline: none; /* Remove default focus outline */
+    border: 1px solid white; /* Add a custom focus border */
+  }
+  .comment-form button {
+    background-color: orangered;
+    margin-top: -4px;
+   
+  }
+  
+  .comment-table p {
+    margin: 0; /* Remove default margins */
+    font-size: 14px; /* Default font size */
+    color: #333; /* Text color */
+  }
+  #comment-content {
+    /* width: 85%; */
+    text-wrap: nowrap;
+    text-align: left;
+    color: aliceblue;
+}
+
+.modal button {
     display: block;
     margin: 10px auto;
     background: #ff0000;
@@ -135,8 +259,7 @@ span {
     border-radius: 5px;
     cursor: pointer;
   }
- 
-  
+
 
 @media (max-width: 900px) {
 .title-container {
@@ -166,144 +289,21 @@ span {
     text-align: center;
 }
 }
-@media (max-width: 768px) {
-.selected-movie-container {
-/* margin: -30px; */
-}
-}
-/* @media (max-width: 1180px)  {
-    .movie-title {
-        font-size: 3rem;
-        margin-left: 40px;
-        
-    }
-    button {
-        margin-bottom: 2px;
-    }
-    .close {
-        bottom: 80%;
-    }
-}
 
-@media (max-width: 900px) {
-    .movie-title{
-       width: 100%;
+@media (min-width: 768px) {
+    .comment-table {
+      flex-direction: row; 
+      justify-content: space-between;
+      display: flex; 
     }
-    .movie-properties {
-        font-size: 20px;
+  
+    .comment-table p {
+      font-size: 16px; /* Increase font size on larger screens */
     }
-    .about{
-        font-size: 20px;
-        text-align: center;
-        margin-left: 70px;
-    }
-    button {
-        width: 130px;
-        
-    }
-    .buttons {
-        gap: 20px;
-        display: flex;
-        justify-content: center;
-        margin-top: 60px;
-    }
+  
+  }
 
-    .close {
-        bottom: 90%;
-    }
-    .container {
-        flex: 1;
-        justify-content: center;
-    }
-    .container:not(:has(.selected-movie)) .buttons{
-        position: relative;
-        left: 50%;
-        height: 60px;
-      
-      
-    }
-    .container:not(:has(.selected-movie)) .movie-title{
-        font-size: 4em;
-        position: relative;
-        left: 50%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
 
-@media (max-width: 700px) {
-    .movie-title {
-        width: 100%;
-        font-size: 17px;
-        margin:5px -2px;
-    }
-    .movie-properties {
-        font-size: 10px;
-    }
-    .about {
-        font-size: 14px;
-        position: relative;
-        transform: translateX(-10%);
-    }
-    .buttons {
-        margin-top: 5px;
-        bottom: 20px;
-        justify-content: center;
-    }
-    .close {
-        bottom: 90%;
-    }
-    .container:not(:has(.selected-movie)) .buttons{
-        position: relative;
-        margin-top: 30%;
-        margin-left: -50%;
-        
-      
-      
-    }
-    .selected-movie {
-        position: relative;
-    }
-    .container:not(:has(.selected-movie)) .movie-title{
-      font-size: 2em; 
-      margin-bottom: 20px;
-      position: absolute;
-      
-      transform: translateX(-50%);
-      margin-left: 0;
-        
-       
-        
-    }
-}
 
-    
-    
 
-@media (max-width: 375px) {
-    .container:not(:has(.selected-movie)) .buttons{
-        margin-left: -70px;
-    }
-}
-@media (max-width: 340px) {
-    .container:not(:has(.selected-movie)) .buttons{
-        display: flex;
-        justify-content:space-around;
-        align-items: center;
-       
-       margin-left: -90px;
-        
-        
-    }
-    .movie-title {
-        margin-top: -20px;
-    }
-    .about {
-        font-size: 10px;
-    }
-    .watch {
-        width: 100%;
-    }
-   
-}
- */
+

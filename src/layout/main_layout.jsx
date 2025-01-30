@@ -3,11 +3,13 @@ import { useLocation } from 'react-router-dom';
 import Navbar from '../general/navbar';
 import { Outlet } from 'react-router-dom';
 
+
+
 function Mainlayout() {
  
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname === '/') {
+    if (location.pathname === '/app') {
       // Apply the default background image for the homepage
       document.body.style.removeProperty('--background-image'); // Reset any previous changes
       document.body.style.backgroundColor = ''; // Clear any solid color

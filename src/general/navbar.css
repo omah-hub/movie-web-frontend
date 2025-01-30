@@ -36,6 +36,14 @@ a {
     color: #ffffff42;             /* Change color on hover */
   }
 
+  .active-link {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.329);
+     /* Change to your desired active background color */
+  }
+
 .navbar-search {
     display: flex;
     align-items: center;

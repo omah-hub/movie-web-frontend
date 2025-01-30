@@ -46,46 +46,5 @@
         height: 130px;
     }
  } 
-@media (max-width: 768px) {
-    /* .slider-container {
-        height: 160px;
-    } */
-    /* .slider-item img {
-        height: 130px;
-    } */
-    
-}
 
-
-/* @media (max-width: 1024px) {
-    .slider-container {
-        margin-top: 80px;
-        height: 400px;
-        
-    }
-}
-
-@media (max-width: 700px) {
-    
-    .slider-item img {
-        margin-top: -150px;
-    }
-    .slider-container {
-        width: 100%;
-    }
-}
-
-@media (max-width: 900px) {
-    .slider-container {
-      margin-top: 270px;
-      
-      width: 100%;
-    }
-    .slider-item {
-       bottom: 90px;
-    }
-    .slider-item img {
-        padding-top: 50%;
-    }
-} */
 
