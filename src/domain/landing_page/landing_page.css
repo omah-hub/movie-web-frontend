@@ -9,75 +9,34 @@
     overflow: hidden;
   }
   
+  
   .background-picture {
     position: absolute;
     margin: 130px 20px;
     box-shadow: 1px 10px 15px 15px rgba(128, 128, 128, 0.219);
-   
-    /* transition: transform 0.3s ease-in-out; */
+  
   }
   
-  .background-picture img {
-    display: block;
-    border-radius: 8px;
-    animation: tiltAndMove 3s ease-in-out infinite;
-  }
+ 
 
-  /* @keyframes tiltAndMove {
-    0% {
-      transform: rotate(0deg) translate(0, 0);
-    }
-    25% {
-      transform: rotate(-360deg) translate(50%, -50%);
-    }
-    50% {
-      transform: rotate(0deg) translate(0, 0);
-    }
-    75% {
-      transform: rotate(55deg) translate(-50%, 50%);
-    }
-    100% {
-      transform: rotate(0deg) translate(0, 0);
-    }
-  } */
-  
-  /* Add specific styles for tilting each image */
-  /* .background-picture:nth-child(1) img {
-    transform: rotate(-5deg); 
-  } */
-  
-  .background-picture:nth-child(2) img {
-    /* transform: rotate(5deg); Top-left tilt */
-  }
-  
-  .background-picture:nth-child(3) img {
-    /* transform: rotate(-7deg); Bottom-right tilt */
-  }
-  
-  .background-picture:nth-child(4) img {
-    /* transform: rotate(7deg); Bottom-left tilt */
-  }
-  
-  /* Optional: Add a hover effect for a subtle zoom */
-  .background-picture img:hover {
-    /* transform: scale(1.05); */
-  }
-  
-  /* .background-picture img:hover {
-    animation-play-state: paused;
-  } */
-
-  
+ 
   .landing-text {
     color: white;
-    
+    text-wrap: nowrap;
     font-family: "cursive";
     font-size: "30px";
    
     animation: colorZoom 3s infinite ease-in-out;
-    
-    
-    
+     
+  }
+  .landing-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   @keyframes colorZoom {
@@ -104,15 +63,17 @@
   }
 
   @media (max-width: 1224px) {
-    #hidden {
-        visibility: hidden;
+    .landing-page .background-picture:nth-child(1) {
+      /* visibility: hidden;
+       */
+       display: none;
     }
-    /* .landing-text-container {
-      margin-left: -90px;
-        
-        
-        
-    } */
+
+    .landing-page .background-picture:nth-child(2) {
+      
+   
+    }
+
   }
   
   @media (max-width: 927px) {

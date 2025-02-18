@@ -18,17 +18,19 @@ function LandingPage() {
         navigate('auth/signup')
     }
   return (
-    <div className='landing-page'>
-       <div className="background-picture" style={{top:"0px"}} onClick={handleSignup}>
+    <div style={{backgroundImage: "revert"}}>
+     <div className='landing-page'>
+      <div className="background-picture" style={{top:"0px"}} onClick={handleSignup}>
         <img src={signup} alt="" style={{width: "35rem", height: "20rem"}}/>
-       </div>
-        <div className="background-picture" style={{right: "0px", top: "0px"}} onClick={handleLogin}>
+      </div>
+      <div className="background-picture" style={{right: "0px", top: "0px"}} onClick={handleLogin}>
         <img src={login} alt="" style={{width: "40rem", height: "20rem"}}/>
-        </div>
+      </div>
+     </div>
         
-        <div className="landing-text-container">
+      <div className="landing-text-container">
         <p className="landing-text">Click on any of the image to either login or register!</p>
-        </div>
+      </div>
     </div>
   )
 }
